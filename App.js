@@ -5,11 +5,16 @@ import NewTask from './components/NewTask';
 import ShowTasks from './components/ShowTasks';
 
 export default function App() {
-  const [newTaskView, setNewTaskView] = useState(true)
+  const [newTaskView, setNewTaskView] = useState(false)
+  const [tasks, setTasks] = useState([])
+  const [count, setCount] = useState(0)
 
   const addTaskHandler = (title, body) => {
     // Add to db, must retrieve from DB on open as well
-    console.log(`title: ${title} body: ${body}`)
+    setTasks((prevState) => {
+      return [ ...prevState, {id: count, title: title, body: body} ];
+    })
+    setCount(prevState => prevState + 1)
   };
 
   const changeViewHandler = (givenBoolean) => {
@@ -22,7 +27,7 @@ export default function App() {
     )
   } else {
     return(
-      <ShowTasks onChangeTaskView={changeViewHandler}></ShowTasks>
+      <ShowTasks items={tasks} onChangeTaskView={changeViewHandler}></ShowTasks>
     )
   }
 
