@@ -7,6 +7,7 @@ const NewTask = (props) => {
 
   const handleSubmit = () => {
     props.onAddTask(title, body)
+    handleViewChange()
   }
 
   const handleViewChange = () => {

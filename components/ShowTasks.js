@@ -14,6 +14,8 @@ const ShowTasks = (props) => {
       <View style={{backgroundColor: 'black', }}>
         <Image source={white_Kõnnect_01} style={{width: '100%', height: 100, display: 'block', marginLeft: 'auto', marginRight: 'auto'}} />
       </View>
+      <Text>To Do List</Text>
+      <Text>Urgent</Text>
       {props.items.map((task) => (
         <TaskCard
           key={task.id}
