@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar, StyleSheet, Text, View } from 'react-native';
 
 import NewTask from './components/NewTask';
 import ShowTasks from './components/ShowTasks';
 
 export default function App() {
-  const [newTaskView, setNewTaskView] = useState(false)
+  const [newTaskView, setNewTaskView] = useState(true)
   const [tasks, setTasks] = useState([])
   const [count, setCount] = useState(0)
 
@@ -21,21 +21,20 @@ export default function App() {
     setNewTaskView(givenBoolean)
   }
 
+  let pageDisplay;
+
   if (newTaskView) {
-    return(
-      <NewTask onAddTask={addTaskHandler} onChangeTaskView={changeViewHandler}></NewTask>
-    )
+    pageDisplay = <NewTask onAddTask={addTaskHandler} onChangeTaskView={changeViewHandler}></NewTask>
   } else {
-    return(
-      <ShowTasks items={tasks} onChangeTaskView={changeViewHandler}></ShowTasks>
-    )
+    pageDisplay = <ShowTasks items={tasks} onChangeTaskView={changeViewHandler}></ShowTasks>
   }
 
-  // return (
-  //   <View style={styles.container}>
-  //     <NewTask onAddTask={addTaskHandler}></NewTask>
-  //   </View>
-  // );
+  return(
+    <View>
+      {pageDisplay}
+      <StatusBar style="auto" />
+    </View>
+  )
 }
 
 const styles = StyleSheet.create({
