@@ -30,7 +30,7 @@ const NewTask = (props) => {
       <TextInput style={{height: 40}}
         onChangeText={currentText => setBody(currentText)}
         value={body}/>
-      <Button onPress={handleSubmit}/>
+      <Button title="Submit" onPress={handleSubmit}/>
     </View>
   )
 }
