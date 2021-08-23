@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { Image, StyleSheet, Text, View, Button } from 'react-native';
+import white_Kõnnect_01 from '../assets/white_Kõnnect_01.png';
 
 import TaskCard from './TaskCard'
 
@@ -10,6 +11,9 @@ const ShowTasks = (props) => {
 
   return(
     <View>
+      <View style={{backgroundColor: 'black', }}>
+        <Image source={white_Kõnnect_01} style={{width: '100%', height: 100, display: 'block', marginLeft: 'auto', marginRight: 'auto'}} />
+      </View>
       {props.items.map((task) => (
         <TaskCard
           key={task.id}
@@ -18,7 +22,7 @@ const ShowTasks = (props) => {
           body={task.body}
         />
       ))}
-        <Button
+      <Button
         onPress={handleViewChange}
         title="New Task"
         color="#841584"
