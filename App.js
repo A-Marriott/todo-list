@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 import NewTask from './components/NewTask';
+import ShowTasks from './components/ShowTasks';
 
 export default function App() {
   const [newTaskView, setNewTaskView] = useState(true)
@@ -11,13 +12,17 @@ export default function App() {
     console.log(`title: ${title} body: ${body}`)
   };
 
+  const changeViewHandler = (givenBoolean) => {
+    setNewTaskView(givenBoolean)
+  }
+
   if (newTaskView) {
     return(
-      <NewTask onAddTask={addTaskHandler}></NewTask>
+      <NewTask onAddTask={addTaskHandler} onChangeTaskView={changeViewHandler}></NewTask>
     )
   } else {
     return(
-      <Text>Hey</Text>
+      <ShowTasks onChangeTaskView={changeViewHandler}></ShowTasks>
     )
   }
 

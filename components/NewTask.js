@@ -9,10 +9,14 @@ const NewTask = (props) => {
     props.onAddTask(title, body)
   }
 
+  const handleViewChange = () => {
+    props.onChangeTaskView(false)
+  }
+
   return (
     <View>
       <Button
-      onPress={console.log('hey')}
+      onPress={handleViewChange}
       title="Back"
       color="#841584"
     />
