@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
 
-const NewTask = () => {
+const NewTask = (props) => {
   const [title, setTitle] = useState('')
   const [body, setBody] = useState('')
 
   const handleSubmit = () => {
-    console.log(`${title} + ${body}`)
+    props.onAddTask(title, body)
   }
 
   return (
