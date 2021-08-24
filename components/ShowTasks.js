@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Image, StyleSheet, Text, View, Button } from 'react-native';
+import { Image, StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
 import white_Kõnnect_01 from '../assets/white_Kõnnect_01.png';
 
 import TaskCard from './TaskCard'
@@ -20,7 +20,10 @@ const ShowTasks = (props) => {
       </View>
       <View style={styles.container}>
         <Text>To Do List</Text>
-        <Text>Urgent</Text>
+        <View style={{display: 'flex', flexDirection: 'row', marginTop: 4, marginBottom: 28}}>
+          <View style={{width: 12, height: 12, lineHeight: 0, borderWidth: 1.5, borderColor: 'red', borderRadius: 2, marginTop: 4, marginRight: 4}}></View>
+          <Text>Urgent</Text>
+        </View>
         {props.items.map((task, index) => (
           <TaskCard
             key={task.id}
@@ -32,11 +35,10 @@ const ShowTasks = (props) => {
             handleDelete={handleDelete}
           />
         ))}
-        <Button
-          onPress={handleViewChange}
-          title="New Task"
-          color="#841584"
-        />
+        <View style={{marginBottom: 120}}></View>
+        <TouchableOpacity style={styles.newTaskButton} onPress={handleViewChange}>
+          <Text style={{color: 'white'}}>New Task</Text>
+        </TouchableOpacity>
       </View>
     </View>
   )
@@ -45,7 +47,15 @@ const ShowTasks = (props) => {
 const styles = StyleSheet.create({
   container: {
     margin: 24
-  }
+  },
+  newTaskButton: {
+    height: 40,
+    backgroundColor: '#9FB6B1',
+    borderRadius: 4,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
 });
 
 
