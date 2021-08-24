@@ -71,12 +71,14 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'black',
     borderStyle: 'solid',
+    textAlignVertical: 'top'
   },
   inputBoxBody: {
     height: 120,
     borderWidth: 1,
     borderColor: 'black',
     borderStyle: 'solid',
+    textAlignVertical: 'top'
   },
   submitButton: {
     height: 40,

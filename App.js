@@ -7,7 +7,7 @@ import NewTask from './components/NewTask';
 import ShowTasks from './components/ShowTasks';
 
 export default function App() {
-  const [newTaskView, setNewTaskView] = useState(true)
+  const [newTaskView, setNewTaskView] = useState(false)
   const [tasks, setTasks] = useState([])
   const [count, setCount] = useState(0)
 
@@ -20,7 +20,6 @@ export default function App() {
     setTasks((prevState) => {
       return [ ...prevState, {id: count, title: title, body: body, urgent: urgent} ];
     })
-    console.log(urgent)
     setCount(prevState => prevState + 1)
   };
 
@@ -47,12 +46,3 @@ export default function App() {
     )
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
