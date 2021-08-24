@@ -42,8 +42,8 @@ const NewTask = (props) => {
           <Checkbox style={{marginLeft: -7, marginTop: -6}} value={urgent} onChange={changeUrgent} />
           <Text>Urgent</Text>
         </View>
-        <TouchableOpacity onPress={handleSubmit}>
-          <Text style={styles.submitButton}>Submit</Text>
+        <TouchableOpacity style={styles.submitButton} onPress={handleSubmit}>
+          <Text style={{color: 'white'}}>Submit</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -82,11 +82,11 @@ const styles = StyleSheet.create({
   },
   submitButton: {
     height: 40,
-    color: 'white',
     backgroundColor: '#9FB6B1',
-    lineHeight: 40,
-    textAlign: 'center',
     borderRadius: 4,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center'
   }
 });
 
