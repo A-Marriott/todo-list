@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
+import AppLoading from 'expo-app-loading';
 import { StatusBar, StyleSheet, Text, View } from 'react-native';
+import { useFonts, Inter_400Regular } from '@expo-google-fonts/inter';
 
 import NewTask from './components/NewTask';
 import ShowTasks from './components/ShowTasks';
@@ -8,6 +10,10 @@ export default function App() {
   const [newTaskView, setNewTaskView] = useState(true)
   const [tasks, setTasks] = useState([])
   const [count, setCount] = useState(0)
+
+  let [fontsLoaded] = useFonts({
+    Inter_400Regular,
+  });
 
   const addTaskHandler = (title, body) => {
     // Add to db, must retrieve from DB on open as well
@@ -29,12 +35,16 @@ export default function App() {
     pageDisplay = <ShowTasks items={tasks} onChangeTaskView={changeViewHandler}></ShowTasks>
   }
 
-  return(
-    <View>
-      {pageDisplay}
-      <StatusBar style="auto" />
-    </View>
-  )
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  } else {
+    return(
+      <View>
+        {pageDisplay}
+        <StatusBar style="auto" />
+      </View>
+    )
+  }
 }
 
 const styles = StyleSheet.create({

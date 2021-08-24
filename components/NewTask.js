@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
+import { TouchableOpacity, StyleSheet, Text, View, Button, TextInput } from 'react-native';
 
 const NewTask = (props) => {
   const [title, setTitle] = useState('')
@@ -21,6 +21,11 @@ const NewTask = (props) => {
       title="Back"
       color="#841584"
     />
+    <TouchableOpacity
+      onPress={handleViewChange}
+    >
+      <Text style={styles.backButton}>{"<"} Back</Text>
+    </TouchableOpacity>
       <Text>Add a task</Text>
       <Text>Title</Text>
       <TextInput style={{height: 40}}
@@ -34,5 +39,18 @@ const NewTask = (props) => {
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+  backButton: {
+
+  },
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
+
 
 export default NewTask;
