@@ -8,12 +8,16 @@ const NewTask = (props) => {
   const [urgent, setUrgent] = useState(false);
 
   const handleSubmit = () => {
-    props.onAddTask(title, body)
+    props.onAddTask(title, body, urgent)
     handleViewChange()
   }
 
   const handleViewChange = () => {
     props.onChangeTaskView(false)
+  }
+
+  const changeUrgent = () => {
+    urgent ? setUrgent(false) : setUrgent(true)
   }
 
   return (
@@ -35,7 +39,7 @@ const NewTask = (props) => {
           onChangeText={currentText => setBody(currentText)}
           value={body}/>
         <View style={{display: 'flex', flexDirection: 'row', marginTop: 10, marginBottom: 120}}>
-          <Checkbox style={{marginLeft: -7, marginTop: -6}} value={urgent} onValueChange={setUrgent} />
+          <Checkbox style={{marginLeft: -7, marginTop: -6}} value={urgent} onChange={changeUrgent} />
           <Text>Urgent</Text>
         </View>
         <TouchableOpacity onPress={handleSubmit}>

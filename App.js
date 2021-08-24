@@ -15,11 +15,12 @@ export default function App() {
     Inter_400Regular,
   });
 
-  const addTaskHandler = (title, body) => {
+  const addTaskHandler = (title, body, urgent) => {
     // Add to db, must retrieve from DB on open as well
     setTasks((prevState) => {
-      return [ ...prevState, {id: count, title: title, body: body} ];
+      return [ ...prevState, {id: count, title: title, body: body, urgent: urgent} ];
     })
+    console.log(urgent)
     setCount(prevState => prevState + 1)
   };
 

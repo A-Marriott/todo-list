@@ -22,6 +22,7 @@ const ShowTasks = (props) => {
           taskNumber={task.id + 1}
           title={task.title}
           body={task.body}
+          urgent={task.urgent}
         />
       ))}
       <Button

@@ -7,6 +7,7 @@ const TaskCard = (props) => {
       <Text>Task {props.taskNumber}</Text>
       <Text>{props.title}</Text>
       <Text>{props.body}</Text>
+
     </View>
   )
 }
