@@ -7,7 +7,7 @@ import NewTask from './components/NewTask';
 import ShowTasks from './components/ShowTasks';
 
 export default function App() {
-  const [newTaskView, setNewTaskView] = useState(false)
+  const [view, setView] = useState('ShowTasks')
   const [tasks, setTasks] = useState([{id: 10, title: 'Laundry', body: 'take the laundry out and dry it take the laundry out and dry it take the laundry out and dry it take the laundry out and dry it', urgent: true}])
   const [count, setCount] = useState(0)
 
@@ -23,15 +23,15 @@ export default function App() {
     setCount(prevState => prevState + 1)
   };
 
-  const changeViewHandler = (givenBoolean) => {
-    setNewTaskView(givenBoolean)
+  const changeViewHandler = (string) => {
+    setView(string)
   }
 
   let pageDisplay;
 
-  if (newTaskView) {
+  if (view === 'NewTask') {
     pageDisplay = <NewTask onAddTask={addTaskHandler} onChangeTaskView={changeViewHandler}></NewTask>
-  } else {
+  } else if (view === 'ShowTasks') {
     pageDisplay = <ShowTasks items={tasks} onChangeTaskView={changeViewHandler}></ShowTasks>
   }
 

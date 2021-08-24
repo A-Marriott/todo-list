@@ -6,7 +6,7 @@ import TaskCard from './TaskCard'
 
 const ShowTasks = (props) => {
   const handleViewChange = () => {
-    props.onChangeTaskView(true)
+    props.onChangeTaskView('NewTask')
   }
 
   return(

@@ -13,7 +13,7 @@ const NewTask = (props) => {
   }
 
   const handleViewChange = () => {
-    props.onChangeTaskView(false)
+    props.onChangeTaskView('ShowTasks')
   }
 
   const changeUrgent = () => {
