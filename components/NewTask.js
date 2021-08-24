@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import Checkbox from 'expo-checkbox';
 import { TouchableOpacity, StyleSheet, Text, View, Button, TextInput } from 'react-native';
 
 const NewTask = (props) => {
   const [title, setTitle] = useState('')
   const [body, setBody] = useState('')
+  const [urgent, setUrgent] = useState(false);
 
   const handleSubmit = () => {
     props.onAddTask(title, body)
@@ -32,6 +34,10 @@ const NewTask = (props) => {
           ]}
           onChangeText={currentText => setBody(currentText)}
           value={body}/>
+        <View style={{display: 'flex', flexDirection: 'row', marginTop: 10, marginBottom: 120}}>
+          <Checkbox style={{marginLeft: -7, marginTop: -6}} value={urgent} onValueChange={setUrgent} />
+          <Text>Urgent</Text>
+        </View>
         <TouchableOpacity onPress={handleSubmit}>
           <Text style={styles.submitButton}>Submit</Text>
         </TouchableOpacity>
@@ -74,7 +80,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#9FB6B1',
     lineHeight: 40,
     textAlign: 'center',
-    borderRadius: 4
+    borderRadius: 4,
   }
 });
 
