@@ -7,8 +7,10 @@ const TaskCard = (props) => {
       <View style={[styles.taskNumberIcon, props.urgent && styles.urgentBorder]}>
         <Text style={{color: 'white'}}>Task {props.taskNumber}</Text>
       </View>
-      <Text>{props.title}</Text>
-      <Text>{props.body}</Text>
+      <View style={styles.contentContainer}>
+        <Text style={{textDecorationLine: 'underline', marginBottom: 6}}>{props.title}</Text>
+        <Text>{props.body}</Text>
+      </View>
     </View>
   )
 }
@@ -17,7 +19,15 @@ const styles = StyleSheet.create({
   container: {
     display: 'flex',
     flexDirection: 'row',
-    padding: 24
+    alignItems: 'center',
+    margin: 24,
+    padding: 12,
+    borderWidth: 1.3,
+    borderRadius: 6
+  },
+  contentContainer: {
+    marginLeft: 24,
+    maxWidth: 240
   },
   taskNumberIcon: {
     height: 32,

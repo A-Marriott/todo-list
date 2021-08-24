@@ -8,7 +8,7 @@ import ShowTasks from './components/ShowTasks';
 
 export default function App() {
   const [newTaskView, setNewTaskView] = useState(false)
-  const [tasks, setTasks] = useState([{id: 10, title: 'Laundry', body: 'take the laundry out and dry it', urgent: true}])
+  const [tasks, setTasks] = useState([{id: 10, title: 'Laundry', body: 'take the laundry out and dry it take the laundry out and dry it take the laundry out and dry it take the laundry out and dry it', urgent: true}])
   const [count, setCount] = useState(0)
 
   let [fontsLoaded] = useFonts({
