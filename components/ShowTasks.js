@@ -16,10 +16,10 @@ const ShowTasks = (props) => {
       </View>
       <Text>To Do List</Text>
       <Text>Urgent</Text>
-      {props.items.map((task) => (
+      {props.items.map((task, index) => (
         <TaskCard
           key={task.id}
-          taskNumber={task.id + 1}
+          taskNumber={index + 1}
           title={task.title}
           body={task.body}
           urgent={task.urgent}

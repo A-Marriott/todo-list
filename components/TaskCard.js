@@ -3,13 +3,19 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 
 const TaskCard = (props) => {
   return(
-    <View>
+    <View style={styles.container}>
       <Text>Task {props.taskNumber}</Text>
       <Text>{props.title}</Text>
       <Text>{props.body}</Text>
-
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    display: 'flex',
+    flexDirection: 'row'
+  }
+});
 
 export default TaskCard;
