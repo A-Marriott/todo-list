@@ -85,14 +85,16 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'black',
     borderStyle: 'solid',
-    textAlignVertical: 'top'
+    textAlignVertical: 'top',
+    padding: 6
   },
   inputBoxBody: {
     height: 120,
     borderWidth: 1,
     borderColor: 'black',
     borderStyle: 'solid',
-    textAlignVertical: 'top'
+    textAlignVertical: 'top',
+    padding: 6
   },
   submitButton: {
     height: 40,
