@@ -9,29 +9,44 @@ const ShowTasks = (props) => {
     props.onChangeTaskView('NewTask')
   }
 
+  const handleDelete = (id) => {
+    props.onDeleteTask(id)
+  }
+
   return(
     <View>
       <View style={{backgroundColor: 'black'}}>
         <Image source={white_Kõnnect_01} resizeMode={'contain'} style={{width: '70%', height: 100, marginLeft: 'auto', marginRight: 'auto'}}></Image>
       </View>
-      <Text>To Do List</Text>
-      <Text>Urgent</Text>
-      {props.items.map((task, index) => (
-        <TaskCard
-          key={task.id}
-          taskNumber={index + 1}
-          title={task.title}
-          body={task.body}
-          urgent={task.urgent}
+      <View style={styles.container}>
+        <Text>To Do List</Text>
+        <Text>Urgent</Text>
+        {props.items.map((task, index) => (
+          <TaskCard
+            key={task.id}
+            id={task.id}
+            taskNumber={index + 1}
+            title={task.title}
+            body={task.body}
+            urgent={task.urgent}
+            handleDelete={handleDelete}
+          />
+        ))}
+        <Button
+          onPress={handleViewChange}
+          title="New Task"
+          color="#841584"
         />
-      ))}
-      <Button
-        onPress={handleViewChange}
-        title="New Task"
-        color="#841584"
-      />
+      </View>
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    margin: 24
+  }
+});
+
 
 export default ShowTasks;

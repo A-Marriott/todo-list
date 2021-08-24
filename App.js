@@ -8,7 +8,7 @@ import ShowTasks from './components/ShowTasks';
 
 export default function App() {
   const [view, setView] = useState('ShowTasks')
-  const [tasks, setTasks] = useState([{id: 10, title: 'Laundry', body: 'take the laundry out and dry it take the laundry out and dry it take the laundry out and dry it take the laundry out and dry it', urgent: true}])
+  const [tasks, setTasks] = useState([{id: 1, title: 'Laundry', body: 'take the laundry out', urgent: true}, {id: 2, title: 'Laundry', body: 'take the laundry out', urgent: false}])
   const [count, setCount] = useState(0)
 
   let [fontsLoaded] = useFonts({
@@ -27,12 +27,16 @@ export default function App() {
     setView(string)
   }
 
+  const deleteTaskHandler = (id) => {
+    setTasks(prevState => prevState.filter(task => task.id !== id))
+  }
+
   let pageDisplay;
 
   if (view === 'NewTask') {
     pageDisplay = <NewTask onAddTask={addTaskHandler} onChangeTaskView={changeViewHandler}></NewTask>
   } else if (view === 'ShowTasks') {
-    pageDisplay = <ShowTasks items={tasks} onChangeTaskView={changeViewHandler}></ShowTasks>
+    pageDisplay = <ShowTasks onDeleteTask={deleteTaskHandler} items={tasks} onChangeTaskView={changeViewHandler}></ShowTasks>
   }
 
   if (!fontsLoaded) {
