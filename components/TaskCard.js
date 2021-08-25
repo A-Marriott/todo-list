@@ -87,12 +87,13 @@ const styles = StyleSheet.create({
   },
   deleteButton: {
     position: 'absolute',
-    top: 0,
-    right: 7
+    top: -7,
+    right: 0
   },
   deleteButtonText: {
     fontWeight: 'bold',
-    fontSize: 20
+    fontSize: 20,
+    margin: 8
   },
   centeredView: {
     flex: 1,
