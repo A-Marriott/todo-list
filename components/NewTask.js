@@ -49,7 +49,7 @@ const NewTask = (props) => {
           numberOfLines={1}
         />
         <Text style={[styles.marginBottom, styles.boldText, styles.standardFontSize]}>Body</Text>
-        <TextInput style={[styles.marginBottom, styles.inputBox, bodyEmptyOnSubmit && styles.redBorder]}
+        <TextInput style={[styles.marginBottom, styles.inputBox, {height: 160}, bodyEmptyOnSubmit && styles.redBorder]}
           onChangeText={currentText => setBody(currentText)}
           value={body}
           multiline

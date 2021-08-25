@@ -60,9 +60,9 @@ export default function App() {
   }
 
   return(
-    <View>
+    <View style={{paddingTop: StatusBar.currentHeight}}>
+    {Platform.OS === 'ios' && <View style={{marginTop: 50}}><StatusBar barStyle={'dark-content'}/></View>}
       {pageDisplay}
-      <StatusBar style='auto' />
     </View>
   )
 };
