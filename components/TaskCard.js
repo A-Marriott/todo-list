@@ -3,8 +3,8 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
 const TaskCard = (props) => {
   const handleDelete = (id) => {
-    props.handleDelete(props.id)
-  }
+    props.handleDelete(props.id);
+  };
 
   return(
     <View style={styles.container}>
@@ -20,7 +20,7 @@ const TaskCard = (props) => {
       </TouchableOpacity>
     </View>
   )
-}
+};
 
 const styles = StyleSheet.create({
   urgentBorder: {

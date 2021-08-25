@@ -3,37 +3,37 @@ import { ScrollView, TouchableOpacity, StyleSheet, Text, View, TextInput } from 
 import Checkbox from 'expo-checkbox';
 
 const NewTask = (props) => {
-  const [title, setTitle] = useState('')
-  const [body, setBody] = useState('')
+  const [title, setTitle] = useState('');
+  const [body, setBody] = useState('');
   const [urgent, setUrgent] = useState(false);
   const [titleEmptyOnSubmit, setTitleEmptyOnSubmit] = useState(false);
   const [bodyEmptyOnSubmit, setBodyEmptyOnSubmit] = useState(false);
 
   const handleSubmit = () => {
     let allowSubmit = true;
-    setBodyEmptyOnSubmit(false)
-    setTitleEmptyOnSubmit(false)
+    setBodyEmptyOnSubmit(false);
+    setTitleEmptyOnSubmit(false);
     if (!title) {
-      setTitleEmptyOnSubmit(true)
-      allowSubmit = false
+      setTitleEmptyOnSubmit(true);
+      allowSubmit = false;
     }
     if (!body) {
-      setBodyEmptyOnSubmit(true)
-      allowSubmit = false
+      setBodyEmptyOnSubmit(true);
+      allowSubmit = false;
     }
     if (allowSubmit) {
-      props.onAddTask({title: title, body: body, urgent: urgent})
-      handleViewChange()
+      props.onAddTask({title: title, body: body, urgent: urgent});
+      handleViewChange();
     }
-  }
+  };
 
   const handleViewChange = () => {
-    props.onChangeTaskView('ShowTasks')
-  }
+    props.onChangeTaskView('ShowTasks');
+  };
 
   const changeUrgent = () => {
-    urgent ? setUrgent(false) : setUrgent(true)
-  }
+    urgent ? setUrgent(false) : setUrgent(true);
+  };
 
   return (
     <ScrollView>
@@ -57,7 +57,7 @@ const NewTask = (props) => {
           numberOfLines={8}
         />
         <View style={styles.urgentToggle}>
-          <Checkbox style={{marginLeft: -7, marginTop: -6}} value={urgent} onChange={changeUrgent} />
+          <Checkbox style={{marginLeft: -7, marginTop: -6}} value={urgent} onChange={changeUrgent}/>
           <Text>Urgent</Text>
         </View>
         <TouchableOpacity style={styles.submitButton} onPress={handleSubmit}>
@@ -66,7 +66,7 @@ const NewTask = (props) => {
       </View>
     </ScrollView>
   )
-}
+};
 
 const styles = StyleSheet.create({
   standardFontSize: {
@@ -111,6 +111,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
 });
-
 
 export default NewTask;

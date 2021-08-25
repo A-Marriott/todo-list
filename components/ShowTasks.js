@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 import { ScrollView, Image, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import white_Kõnnect_01 from '../assets/white_Kõnnect_01.png';
 
-import TaskCard from './TaskCard'
+import TaskCard from './TaskCard';
 
 const ShowTasks = (props) => {
   const handleViewChange = () => {
-    props.onChangeTaskView('NewTask')
-  }
+    props.onChangeTaskView('NewTask');
+  };
 
   const handleDelete = (id) => {
-    props.onDeleteTask(id)
-  }
+    props.onDeleteTask(id);
+  };
 
   return(
     <ScrollView>
@@ -42,7 +42,7 @@ const ShowTasks = (props) => {
       </View>
     </ScrollView>
   )
-}
+};
 
 const styles = StyleSheet.create({
   standardFontSize: {

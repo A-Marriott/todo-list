@@ -7,8 +7,8 @@ import NewTask from './components/NewTask';
 import ShowTasks from './components/ShowTasks';
 
 export default function App() {
-  const [view, setView] = useState('ShowTasks')
-  const [tasks, setTasks] = useState([])
+  const [view, setView] = useState('ShowTasks');
+  const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
     getTasks();
@@ -20,37 +20,37 @@ export default function App() {
 
   const storeTasks = async () => {
     try {
-      await AsyncStorage.setItem('@tasklist', JSON.stringify(tasks))
+      await AsyncStorage.setItem('@tasklist', JSON.stringify(tasks));
     } catch (e) {
-      console.log('error storing')
+      console.log('error storing');
     }
-  }
+  };
 
   const getTasks = async () => {
     try {
-      const value = await AsyncStorage.getItem('@tasklist')
+      const value = await AsyncStorage.getItem('@tasklist');
       if(value !== null) {
-        setTasks(JSON.parse(value))
+        setTasks(JSON.parse(value));
       }
     } catch(e) {
-      console.log('error getting')
+      console.log('error getting');
     }
-  }
+  };
 
   const addTaskHandler = (taskInfoObject) => {
-    const largestid = tasks.length === 0 ? 0 : Math.max(...tasks.map(task => task.id))
+    const largestid = tasks.length === 0 ? 0 : Math.max(...tasks.map(task => task.id));
     setTasks((prevState) => {
       return [ ...prevState, {id: largestid + 1, title: taskInfoObject.title, body: taskInfoObject.body, urgent: taskInfoObject.urgent} ];
     })
   };
 
   const deleteTaskHandler = (id) => {
-    setTasks(prevState => prevState.filter(task => task.id !== id))
-  }
+    setTasks(prevState => prevState.filter(task => task.id !== id));
+  };
 
   const changeViewHandler = (string) => {
-    setView(string)
-  }
+    setView(string);
+  };
 
   let pageDisplay;
   if (view === 'NewTask') {
@@ -65,4 +65,4 @@ export default function App() {
       <StatusBar style="auto" />
     </View>
   )
-}
+};
