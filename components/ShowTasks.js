@@ -14,7 +14,7 @@ const ShowTasks = (props) => {
   };
 
   return(
-    <ScrollView>
+    <ScrollView style={{flex: 1}} contentContainerStyle={{flexGrow: 1}}>
       <View style={{backgroundColor: 'black'}}>
         <Image source={white_Kõnnect_01} resizeMode={'contain'} style={styles.logo}></Image>
       </View>
@@ -36,10 +36,10 @@ const ShowTasks = (props) => {
           />
         ))}
         <View style={{marginBottom: 120}}></View>
+      </View>
         <TouchableOpacity style={styles.newTaskButton} onPress={handleViewChange}>
           <Text style={styles.newTaskButtonText}>New Task</Text>
         </TouchableOpacity>
-      </View>
     </ScrollView>
   )
 };
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     marginRight: 'auto'
   },
   container: {
-    margin: 24
+    margin: 24,
   },
   urgentKey: {
     display: 'flex',
@@ -79,11 +79,15 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    marginTop: 'auto',
+    marginBottom: 100,
+    marginLeft: 24,
+    marginRight: 24
   },
   newTaskButtonText: {
     color: 'white',
-    fontSize: 18
+    fontSize: 18,
   }
 });
 
