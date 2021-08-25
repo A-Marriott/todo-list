@@ -46,7 +46,7 @@ const TaskCard = (props) => {
         <Text>{props.body}</Text>
       </View>
       <TouchableOpacity style={styles.deleteButton} onPress={() => setModalVisible(true)}>
-        <Text style={{fontWeight: 'bold', fontSize: 20}}>✖</Text>
+        <Text style={styles.deleteButtonText}>✖</Text>
       </TouchableOpacity>
     </View>
   )
@@ -90,11 +90,9 @@ const styles = StyleSheet.create({
     top: 0,
     right: 7
   },
-  blank: {
-
-
-
-
+  deleteButtonText: {
+    fontWeight: 'bold',
+    fontSize: 20
   },
   centeredView: {
     flex: 1,

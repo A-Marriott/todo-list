@@ -113,8 +113,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
   },
   tick: {
-    fontSize: 16,
-    marginBottom: 3
+    fontSize: 12,
+    marginBottom: 2
   },
   submitButton: {
     height: 40,

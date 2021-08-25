@@ -37,7 +37,7 @@ const ShowTasks = (props) => {
         ))}
         <View style={{marginBottom: 120}}></View>
         <TouchableOpacity style={styles.newTaskButton} onPress={handleViewChange}>
-          <Text style={{color: 'white', fontSize: 18}}>New Task</Text>
+          <Text style={styles.newTaskButtonText}>New Task</Text>
         </TouchableOpacity>
       </View>
     </ScrollView>
@@ -81,6 +81,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center'
   },
+  newTaskButtonText: {
+    color: 'white',
+    fontSize: 18
+  }
 });
 
 
