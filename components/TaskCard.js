@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
 const TaskCard = (props) => {
   const handleDelete = (id) => {
@@ -12,10 +12,10 @@ const TaskCard = (props) => {
         <Text style={{color: 'white'}}>Task {props.taskNumber}</Text>
       </View>
       <View style={styles.contentContainer}>
-        <Text style={{textDecorationLine: 'underline', marginBottom: 6, fontSize: 16}}>{props.title}</Text>
+        <Text style={styles.title}>{props.title}</Text>
         <Text>{props.body}</Text>
       </View>
-      <TouchableOpacity style={{position: 'absolute', top: 0, right: 7}} onPress={handleDelete}>
+      <TouchableOpacity style={styles.deleteButton} onPress={handleDelete}>
         <Text style={{fontWeight: 'bold', fontSize: 20}}>✖</Text>
       </TouchableOpacity>
     </View>
@@ -23,6 +23,10 @@ const TaskCard = (props) => {
 }
 
 const styles = StyleSheet.create({
+  urgentBorder: {
+    borderWidth: 1,
+    borderColor: 'red'
+  },
   container: {
     display: 'flex',
     flexDirection: 'row',
@@ -33,10 +37,6 @@ const styles = StyleSheet.create({
     marginBottom: 12,
     position: 'relative',
   },
-  contentContainer: {
-    marginLeft: 24,
-    maxWidth: 240
-  },
   taskNumberIcon: {
     height: 32,
     width: 68,
@@ -46,12 +46,19 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 5
   },
-  urgentBorder: {
-    borderWidth: 1,
-    borderColor: 'red'
+  contentContainer: {
+    marginLeft: 24,
+    maxWidth: 240
   },
-  deleteTask: {
-
+  title: {
+    textDecorationLine: 'underline',
+    marginBottom: 6,
+    fontSize: 16
+  },
+  deleteButton: {
+    position: 'absolute',
+    top: 0,
+    right: 7
   }
 });
 
