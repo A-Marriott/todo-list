@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import AppLoading from 'expo-app-loading';
 import { StatusBar, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { useFonts, Inter_400Regular } from '@expo-google-fonts/inter';
@@ -15,18 +15,27 @@ export default function App() {
     Inter_400Regular,
   });
 
-  const storeData = async (value) => {
+  useEffect(() => {
+    getTasks();
+  }, []);
+
+  useEffect(() => {
+    storeTasks();
+  }, [tasks]);
+
+  const storeTasks = async () => {
     try {
-      await AsyncStorage.setItem('@storage_Greeting', 'hello world!')
+      await AsyncStorage.setItem('@tasklist', JSON.stringify(tasks))
     } catch (e) {
       console.log('error storing')
     }
   }
 
-  const getData = async () => {
+  const getTasks = async () => {
     try {
-      const value = await AsyncStorage.getItem('@storage_Greeting')
+      const value = await AsyncStorage.getItem('@tasklist')
       if(value !== null) {
+        setTasks(JSON.parse(value))
       }
     } catch(e) {
       console.log('error getting')
@@ -34,7 +43,6 @@ export default function App() {
   }
 
   const addTaskHandler = (title, body, urgent) => {
-    // Add to db, must retrieve from DB on open as well
     const largestid = tasks.length === 0 ? 0 : Math.max(...tasks.map(task => task.id))
     setTasks((prevState) => {
       return [ ...prevState, {id: largestid + 1, title: title, body: body, urgent: urgent} ];
@@ -64,12 +72,6 @@ export default function App() {
       <View>
         {pageDisplay}
         <StatusBar style="auto" />
-        <TouchableOpacity onPress={storeData}>
-          <Text>Save</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={getData}>
-          <Text>Read</Text>
-        </TouchableOpacity>
       </View>
     )
   }
