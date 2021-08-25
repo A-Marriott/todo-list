@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
+import { ScrollView, TouchableOpacity, StyleSheet, Text, View, TextInput } from 'react-native';
 import Checkbox from 'expo-checkbox';
-import { ScrollView, Keyboard, TouchableOpacity, StyleSheet, Text, View, Button, TextInput } from 'react-native';
 
 const NewTask = (props) => {
   const [title, setTitle] = useState('')
@@ -38,25 +38,25 @@ const NewTask = (props) => {
   return (
     <ScrollView>
       <TouchableOpacity onPress={handleViewChange}>
-        <Text style={styles.backButton}>{"<"} Back</Text>
+        <Text style={[styles.backButton, styles.standardFontSize]}>{"<"} Back</Text>
       </TouchableOpacity>
       <View style={styles.addTaskContainer}>
-        <Text style={styles.marginBottom}>Add a task</Text>
-        <Text style={[styles.marginBottom, styles.boldText]}>Title</Text>
-        <TextInput style={[styles.marginBottom, styles.inputBoxTitle, titleEmptyOnSubmit && styles.redBorder]}
+        <Text style={[styles.marginBottom, styles.standardFontSize]}>Add a task</Text>
+        <Text style={[styles.marginBottom, styles.boldText, styles.standardFontSize]}>Title</Text>
+        <TextInput style={[styles.marginBottom, styles.inputBox, titleEmptyOnSubmit && styles.redBorder]}
           onChangeText={currentText => setTitle(currentText)}
           value={title}
           multiline
           numberOfLines={1}
         />
-        <Text style={[styles.marginBottom, styles.boldText]}>Body</Text>
-        <TextInput style={[styles.marginBottom, styles.inputBoxBody, bodyEmptyOnSubmit && styles.redBorder]}
+        <Text style={[styles.marginBottom, styles.boldText, styles.standardFontSize]}>Body</Text>
+        <TextInput style={[styles.marginBottom, styles.inputBox, bodyEmptyOnSubmit && styles.redBorder]}
           onChangeText={currentText => setBody(currentText)}
           value={body}
           multiline
           numberOfLines={8}
         />
-        <View style={{display: 'flex', flexDirection: 'row', marginTop: 10, marginBottom: 120}}>
+        <View style={styles.urgentToggle}>
           <Checkbox style={{marginLeft: -7, marginTop: -6}} value={urgent} onChange={changeUrgent} />
           <Text>Urgent</Text>
         </View>
@@ -69,34 +69,38 @@ const NewTask = (props) => {
 }
 
 const styles = StyleSheet.create({
+  standardFontSize: {
+    fontSize: 17
+  },
   marginBottom: {
     marginBottom: 12
   },
   boldText: {
     fontWeight: "bold"
   },
+  redBorder: {
+    borderColor: 'red'
+  },
   backButton: {
-    paddingLeft: 16,
-    paddingTop: 12,
-    fontWeight: "200"
+    marginLeft: 16,
+    marginTop: 12
   },
   addTaskContainer: {
-    paddingTop: 100,
-    padding: 24
+    marginTop: 100,
+    margin: 24
   },
-  inputBoxTitle: {
+  inputBox: {
     borderWidth: 1,
     borderColor: 'black',
     borderStyle: 'solid',
     textAlignVertical: 'top',
     padding: 6
   },
-  inputBoxBody: {
-    borderWidth: 1,
-    borderColor: 'black',
-    borderStyle: 'solid',
-    textAlignVertical: 'top',
-    padding: 6
+  urgentToggle: {
+    display: 'flex',
+    flexDirection: 'row',
+    marginTop: 10,
+    marginBottom: 120
   },
   submitButton: {
     height: 40,
@@ -106,9 +110,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center'
   },
-  redBorder: {
-    borderColor: 'red'
-  }
 });
 
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Image, StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
+import { ScrollView, Image, StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
 import white_Kõnnect_01 from '../assets/white_Kõnnect_01.png';
 
 import TaskCard from './TaskCard'
@@ -14,7 +14,7 @@ const ShowTasks = (props) => {
   }
 
   return(
-    <View>
+    <ScrollView>
       <View style={{backgroundColor: 'black'}}>
         <Image source={white_Kõnnect_01} resizeMode={'contain'} style={{width: '70%', height: 100, marginLeft: 'auto', marginRight: 'auto'}}></Image>
       </View>
@@ -40,7 +40,7 @@ const ShowTasks = (props) => {
           <Text style={{color: 'white', fontSize: 18}}>New Task</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </ScrollView>
   )
 }
 
