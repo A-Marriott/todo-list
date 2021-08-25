@@ -22,7 +22,7 @@ const NewTask = (props) => {
       allowSubmit = false
     }
     if (allowSubmit) {
-      props.onAddTask(title, body, urgent)
+      props.onAddTask({title: title, body: body, urgent: urgent})
       handleViewChange()
     }
   }
@@ -37,9 +37,7 @@ const NewTask = (props) => {
 
   return (
     <ScrollView>
-      <TouchableOpacity
-        onPress={handleViewChange}
-      >
+      <TouchableOpacity onPress={handleViewChange}>
         <Text style={styles.backButton}>{"<"} Back</Text>
       </TouchableOpacity>
       <View style={styles.addTaskContainer}>

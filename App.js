@@ -42,10 +42,10 @@ export default function App() {
     }
   }
 
-  const addTaskHandler = (title, body, urgent) => {
+  const addTaskHandler = (taskInfoObject) => {
     const largestid = tasks.length === 0 ? 0 : Math.max(...tasks.map(task => task.id))
     setTasks((prevState) => {
-      return [ ...prevState, {id: largestid + 1, title: title, body: body, urgent: urgent} ];
+      return [ ...prevState, {id: largestid + 1, title: taskInfoObject.title, body: taskInfoObject.body, urgent: taskInfoObject.urgent} ];
     })
   };
 
