@@ -38,7 +38,7 @@ const NewTask = (props) => {
   return (
     <ScrollView>
       <TouchableOpacity onPress={handleViewChange}>
-        <Text style={[styles.backButton, styles.standardFontSize]}>{"<"} Back</Text>
+        <Text style={[styles.backButton, styles.standardFontSize]}>{'<'} Back</Text>
       </TouchableOpacity>
       <View style={styles.addTaskContainer}>
         <Text style={[styles.marginBottom, styles.standardFontSize]}>Add a task</Text>
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     marginBottom: 12
   },
   boldText: {
-    fontWeight: "bold"
+    fontWeight: 'bold'
   },
   redBorder: {
     borderColor: 'red'

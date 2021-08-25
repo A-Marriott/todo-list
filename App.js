@@ -62,7 +62,7 @@ export default function App() {
   return(
     <View>
       {pageDisplay}
-      <StatusBar style="auto" />
+      <StatusBar style='auto' />
     </View>
   )
 };
