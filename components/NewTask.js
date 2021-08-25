@@ -35,36 +35,34 @@ const NewTask = (props) => {
   };
 
   return (
-    <ScrollView>
+    <ScrollView style={styles.container} contentContainerStyle={{flexGrow: 1}}>
       <TouchableOpacity onPress={handleViewChange}>
         <Text style={[styles.backButton, styles.standardFontSize]}>{'<'} Back</Text>
       </TouchableOpacity>
-      <View style={styles.addTaskContainer}>
-        <Text style={[styles.marginBottom, styles.standardFontSize]}>Add a task</Text>
-        <Text style={[styles.marginBottom, styles.boldText, styles.standardFontSize]}>Title</Text>
-        <TextInput style={[styles.marginBottom, styles.inputBox, titleEmptyOnSubmit && styles.redBorder]}
-          onChangeText={currentText => setTitle(currentText)}
-          value={title}
-          multiline
-          numberOfLines={1}
-        />
-        <Text style={[styles.marginBottom, styles.boldText, styles.standardFontSize]}>Body</Text>
-        <TextInput style={[styles.marginBottom, styles.inputBox, {height: 160}, bodyEmptyOnSubmit && styles.redBorder]}
-          onChangeText={currentText => setBody(currentText)}
-          value={body}
-          multiline
-          numberOfLines={8}
-        />
-        <View style={styles.urgentToggle}>
-          <Pressable style={styles.checkbox} onPress={changeUrgent} hitSlop={30}>
-            {urgent && <Text style={styles.tick}>✔</Text>}
-          </Pressable>
-          <Text>Urgent</Text>
-        </View>
-        <TouchableOpacity style={styles.submitButton} onPress={handleSubmit}>
-          <Text style={styles.submitText}>Submit</Text>
-        </TouchableOpacity>
+      <Text style={[styles.marginBottom, styles.standardFontSize]}>Add a task</Text>
+      <Text style={[styles.marginBottom, styles.boldText, styles.standardFontSize]}>Title</Text>
+      <TextInput style={[styles.marginBottom, styles.inputBox, titleEmptyOnSubmit && styles.redBorder]}
+        onChangeText={currentText => setTitle(currentText)}
+        value={title}
+        multiline
+        numberOfLines={1}
+      />
+      <Text style={[styles.marginBottom, styles.boldText, styles.standardFontSize]}>Body</Text>
+      <TextInput style={[styles.marginBottom, styles.inputBox, {height: 160}, bodyEmptyOnSubmit && styles.redBorder]}
+        onChangeText={currentText => setBody(currentText)}
+        value={body}
+        multiline
+        numberOfLines={8}
+      />
+      <View style={styles.urgentToggle}>
+        <Pressable style={styles.checkbox} onPress={changeUrgent} hitSlop={30}>
+          {urgent && <Text style={styles.tick}>✔</Text>}
+        </Pressable>
+        <Text>Urgent</Text>
       </View>
+      <TouchableOpacity style={styles.submitButton} onPress={handleSubmit}>
+        <Text style={styles.submitText}>Submit</Text>
+      </TouchableOpacity>
     </ScrollView>
   )
 };
@@ -82,13 +80,14 @@ const styles = StyleSheet.create({
   redBorder: {
     borderColor: 'red'
   },
-  backButton: {
-    marginLeft: 16,
-    marginTop: 12
+  container: {
+    flex: 1,
+    marginLeft: 24,
+    marginRight: 24
   },
-  addTaskContainer: {
-    marginTop: 100,
-    margin: 24
+  backButton: {
+    marginTop: 12,
+    marginBottom: 100,
   },
   inputBox: {
     borderWidth: 1,
@@ -122,7 +121,9 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    marginTop: 'auto',
+    marginBottom: 100,
   },
   submitText: {
     color: 'white',

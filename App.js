@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { StatusBar, View } from 'react-native';
-import AppLoading from 'expo-app-loading';
+import { StatusBar, View, Platform, ScrollView, Text } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import NewTask from './components/NewTask';
@@ -60,9 +59,15 @@ export default function App() {
   }
 
   return(
-    <View style={{paddingTop: StatusBar.currentHeight}}>
-    {Platform.OS === 'ios' && <View style={{marginTop: 50}}><StatusBar barStyle={'dark-content'}/></View>}
+    <View style={{paddingTop: StatusBar.currentHeight, flex: 1, justifyContent: 'center'}}>
+      {Platform.OS === 'ios' && <View style={{marginTop: 50}}><StatusBar barStyle={'dark-content'}/></View>}
       {pageDisplay}
     </View>
   )
+
+  // return(
+  //   <ScrollView>
+  //     <Text>hey</Text>
+  //   </ScrollView>
+  // )
 };
