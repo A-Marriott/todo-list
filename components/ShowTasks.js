@@ -35,7 +35,6 @@ const ShowTasks = (props) => {
             handleDelete={handleDelete}
           />
         ))}
-        <View style={{marginBottom: 120}}></View>
       </View>
         <TouchableOpacity style={styles.newTaskButton} onPress={handleViewChange}>
           <Text style={styles.newTaskButtonText}>New Task</Text>
@@ -55,7 +54,9 @@ const styles = StyleSheet.create({
     marginRight: 'auto'
   },
   container: {
-    margin: 24,
+    marginRight: 24,
+    marginLeft: 24,
+    marginTop: 24,
   },
   urgentKey: {
     display: 'flex',
@@ -81,7 +82,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 'auto',
-    marginBottom: 100,
+    marginBottom: 80,
     marginLeft: 24,
     marginRight: 24
   },

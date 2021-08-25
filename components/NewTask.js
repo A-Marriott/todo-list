@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 'auto',
-    marginBottom: 100,
+    marginBottom: 80,
   },
   submitText: {
     color: 'white',
