@@ -61,7 +61,7 @@ const NewTask = (props) => {
           <Text>Urgent</Text>
         </View>
         <TouchableOpacity style={styles.submitButton} onPress={handleSubmit}>
-          <Text style={{color: 'white'}}>Submit</Text>
+          <Text style={{color: 'white', fontSize: 18}}>Submit</Text>
         </TouchableOpacity>
       </View>
     </ScrollView>

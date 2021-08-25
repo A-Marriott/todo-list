@@ -12,7 +12,7 @@ const TaskCard = (props) => {
         <Text style={{color: 'white'}}>Task {props.taskNumber}</Text>
       </View>
       <View style={styles.contentContainer}>
-        <Text style={{textDecorationLine: 'underline', marginBottom: 6}}>{props.title}</Text>
+        <Text style={{textDecorationLine: 'underline', marginBottom: 6, fontSize: 16}}>{props.title}</Text>
         <Text>{props.body}</Text>
       </View>
       <TouchableOpacity style={{position: 'absolute', top: 0, right: 7}} onPress={handleDelete}>
