@@ -47,11 +47,17 @@ const NewTask = (props) => {
         <Text style={[styles.marginBottom, styles.boldText]}>Title</Text>
         <TextInput style={[styles.marginBottom, styles.inputBoxTitle, titleEmptyOnSubmit && styles.redBorder]}
           onChangeText={currentText => setTitle(currentText)}
-          value={title}/>
+          value={title}
+          multiline
+          numberOfLines={1}
+        />
         <Text style={[styles.marginBottom, styles.boldText]}>Body</Text>
         <TextInput style={[styles.marginBottom, styles.inputBoxBody, bodyEmptyOnSubmit && styles.redBorder]}
           onChangeText={currentText => setBody(currentText)}
-          value={body}/>
+          value={body}
+          multiline
+          numberOfLines={8}
+        />
         <View style={{display: 'flex', flexDirection: 'row', marginTop: 10, marginBottom: 120}}>
           <Checkbox style={{marginLeft: -7, marginTop: -6}} value={urgent} onChange={changeUrgent} />
           <Text>Urgent</Text>
@@ -81,7 +87,6 @@ const styles = StyleSheet.create({
     padding: 24
   },
   inputBoxTitle: {
-    height: 40,
     borderWidth: 1,
     borderColor: 'black',
     borderStyle: 'solid',
@@ -89,7 +94,6 @@ const styles = StyleSheet.create({
     padding: 6
   },
   inputBoxBody: {
-    height: 120,
     borderWidth: 1,
     borderColor: 'black',
     borderStyle: 'solid',
