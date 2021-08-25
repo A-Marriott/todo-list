@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Checkbox from 'expo-checkbox';
-import { TouchableOpacity, StyleSheet, Text, View, Button, TextInput } from 'react-native';
+import { ScrollView, Keyboard, TouchableOpacity, StyleSheet, Text, View, Button, TextInput } from 'react-native';
 
 const NewTask = (props) => {
   const [title, setTitle] = useState('')
@@ -36,7 +36,7 @@ const NewTask = (props) => {
   }
 
   return (
-    <View>
+    <ScrollView>
       <TouchableOpacity
         onPress={handleViewChange}
       >
@@ -66,7 +66,7 @@ const NewTask = (props) => {
           <Text style={{color: 'white'}}>Submit</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </ScrollView>
   )
 }
 
