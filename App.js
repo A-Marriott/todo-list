@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { StatusBar, View, Platform, ScrollView, Text } from 'react-native';
+import { StatusBar, View, Platform } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import NewTask from './components/NewTask';
@@ -64,10 +64,4 @@ export default function App() {
       {pageDisplay}
     </View>
   )
-
-  // return(
-  //   <ScrollView>
-  //     <Text>hey</Text>
-  //   </ScrollView>
-  // )
 };
