@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { ScrollView, TouchableOpacity, StyleSheet, Text, View, TextInput } from 'react-native';
-import Checkbox from 'expo-checkbox';
+import { ScrollView, TouchableOpacity, StyleSheet, Text, View, TextInput, Pressable } from 'react-native';
 
 const NewTask = (props) => {
   const [title, setTitle] = useState('');
@@ -32,7 +31,7 @@ const NewTask = (props) => {
   };
 
   const changeUrgent = () => {
-    urgent ? setUrgent(false) : setUrgent(true);
+    setUrgent(!urgent);
   };
 
   return (
@@ -57,11 +56,13 @@ const NewTask = (props) => {
           numberOfLines={8}
         />
         <View style={styles.urgentToggle}>
-          <Checkbox style={{marginLeft: -7, marginTop: -6}} value={urgent} onChange={changeUrgent}/>
+          <Pressable style={styles.checkbox} onPress={changeUrgent} hitSlop={30}>
+            {urgent && <Text style={styles.tick}>✔</Text>}
+          </Pressable>
           <Text>Urgent</Text>
         </View>
         <TouchableOpacity style={styles.submitButton} onPress={handleSubmit}>
-          <Text style={{color: 'white', fontSize: 18}}>Submit</Text>
+          <Text style={styles.submitText}>Submit</Text>
         </TouchableOpacity>
       </View>
     </ScrollView>
@@ -102,6 +103,19 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 120
   },
+  checkbox: {
+    width: 20,
+    height: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 6,
+    borderRadius: 2,
+    borderWidth: 1,
+  },
+  tick: {
+    fontSize: 16,
+    marginBottom: 3
+  },
   submitButton: {
     height: 40,
     backgroundColor: '#9FB6B1',
@@ -110,6 +124,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center'
   },
+  submitText: {
+    color: 'white',
+    fontSize: 18
+  }
 });
 
 export default NewTask;
